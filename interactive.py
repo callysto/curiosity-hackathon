@@ -310,7 +310,8 @@ def challenge3e(): # advanced basic operators and logical operators
     print(rover(" Good work!! Let's try to do some other examples. Since I'm a dog that's over 100 lbs, I want to see if there are any other dogs like me! Can you try and find out?"))
     def Q3E_1(): # get all dogs 
         ans1 = str(input(task("Try to find all the dogs by using the == operator.\n", check = True) + code("pets.loc")))
-        if ans1 == "[pets[\"Species\"] == \"dog\"]" or ans1 == "[pets['Species'] == 'dog']":
+        ans1 = ans1.replace(" ", "")
+        if ans1 == '[pets["Species"]=="dog"]' or ans1 == "[pets['Species']=='dog']":
             correct_answer()
             return display(pets.loc[pets["Species"] == "dog"])
         else:
@@ -320,7 +321,7 @@ def challenge3e(): # advanced basic operators and logical operators
  
     def Q3E_2(): # get all pets over 100lbs
         ans2 = str(input(task(" Now try to write an operator that can find all animals over 100 pounds!\n", check = True) + code("pets.loc")))
-        if ans2 == "[pets['Weight (lbs)'] > 100]" or ans2 == "[pets[\"Weight (lbs)\"] > 100]":
+        if ans2 == "[pets['Weight (lbs)'] > 100]" or ans2 == '[pets["Weight (lbs)"] > 100]':
             correct_answer()
             return display(pets.loc[pets["Weight (lbs)"] > 100])
         else: 
@@ -342,7 +343,6 @@ def challenge3e(): # advanced basic operators and logical operators
     #execute
     Q3E_1()
     Q3E_2()
-    Q3E_3()
         
     
 ################################ CHALLENGE 4
@@ -354,12 +354,12 @@ def challenge4a(): # sort values
         ans = str(input(code("pets")))
         if ans == ".sort_values(by='Time to Adoption (weeks)')" or ans == ".sort_values(by=\"Time to Adoption (weeks)\")":
             correct_answer()
+            display(pets.sort_values(by = 'Time to Adoption (weeks)'))
         else: 
             print(rover(" Better than I could have done!\n"), tryagain("Try .sort_values(by='Time to Adoption (weeks)')"))
             Q4A()
     #execute
-    Q4A()
-    return pets.sort_values(by = 'Time to Adoption (weeks)')
+    Q4A() 
 
 # Question 4 B
 def challenge4b():
@@ -374,27 +374,28 @@ def challenge4b():
         else: 
             print(tryagain("Make sure it looks something like "), code("[['Name', 'Species', 'Gender', 'Age (years)']]"), tryagain("Remember that case and spacing matter!", exclaim=False))
             Q4B_1()
-        clear_output(wait = True)
+        
             
     def Q4B_1A(): # question to access with variable name
         ans2 = str(input(task("Now try typing pets_subset to see the dataframe! :)\n", check = True)))
         if ans2 == "pets_subset":
             correct_answer()
+            display(pets_subset)
         else: 
             print(tryagain("Try again!"))
             Q4B_1A()
-        clear_output(wait = True)
-        return display(pets_subset)
+        
             
     def Q4B_1B(): # sort subset dataframe by age 
         ans3 = str(input(task("Why don't we try sorting this data by age now? Fill in the command and let's try it!\n", check = True) + code("pets_subset")))
         if ans3 == ".sort_values(by='Age (years)')" or ans3 == ".sort_values(by=\"Age (years)\")":
             correct_answer()
+            display(pets_subset.sort_values(by='Age (years)'))
         else:             
             print(tryagain("Try pets_subset"), code(".sort_values(by='Age (years)')"))      
             Q4B_1B()
-        clear_output(wait = True)
-        return display(pets_subset.sort_values(by='Age (years)'))
+        
+         
     
     #execute
     Q4B_1()
@@ -453,7 +454,6 @@ def challenge4d(): # use basic statistics methods
         cont = input("Would you like to try another method? (y/n)")
         if cont == "y" or cont == "yes" or cont == "Yes": 
             challenge4d()
-            clear_output(wait = True)
         else: 
             def Q4D_2(): # nested describe function
                 ans2 = str(input(task("Try to use ", check = True) + code(".describe()") + task(" on the dataset now!\n") + code("pets")))
@@ -462,7 +462,6 @@ def challenge4d(): # use basic statistics methods
                     return display(pets.describe())
                 else:
                     print(tryagain("Try again!"))
-            clear_output(wait = True)
             Q4D_2()
     #execute 
     Q4D_1()
