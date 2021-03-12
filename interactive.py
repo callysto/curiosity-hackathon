@@ -93,7 +93,6 @@ def challenge1b(): # load in dataset challenge
         else: 
             print(tryagain("Try again. Make sure you spelled everything correctly and included the file extension"))
             Q1B_1()
-        clear_output(wait = True)
         
     def Q1B_2(): # What is the library?
         ans2 = str(input(rover(" The library we want to use that contains the ") + code("read_csv() ") + normal("function is: ")))
@@ -102,12 +101,12 @@ def challenge1b(): # load in dataset challenge
         else: 
             print(tryagain("Try again. Remember that it is case sensitive."))
             Q1B_2()
-        clear_output(wait = True)
         
     def Q1B_3(): # write read in function 
         ans3 = str(input(task("Try writing code to access the Pets Archives from Earth: ", check = True)))
         if ans3 == "pandas.read_csv(\"pets_from_bootstrap_world.csv\")" or ans3 == "pandas.read_csv('pets_from_bootstrap_world.csv')":
             correct_answer()
+            display(pandas.read_csv("pets_from_bootstrap_world.csv"))
             print(rover(" Notice there are eight columns for each animal: Name, Species, Gender, Age (years), Fixed, Legs, Weight (lbs), and Time to Adoption (weeks)."))
         else:
             print(tryagain("Hmm, not quite. Try following the format"), code("library.function(\"file.csv\")"), tryagain("or double check your spelling.", exclaim = False))
@@ -116,7 +115,7 @@ def challenge1b(): # load in dataset challenge
     Q1B_1()
     Q1B_2()
     Q1B_3()
-    return pandas.read_csv("pets_from_bootstrap_world.csv")
+    
 
 # Question 1 C
 def challenge1c(): # variables challenge 
@@ -132,7 +131,7 @@ def challenge1c(): # variables challenge
         else:
             print(tryagain("Try typing the code word from above. Remember to make sure your spelling and capitalization are the same, too. "))
             Q1C_1()
-        clear_output(wait = True)
+        
             
     def Q1C_2(): # assign the dataset to a variable 
         ans = str(input(task("Now, let's try assigning the dataset as a variable! Write the code to access the Pets Archives from Earth.\n", check = True) + code("pets =  ")))
@@ -141,7 +140,7 @@ def challenge1c(): # variables challenge
         else:
             print(tryagain("Try library.function(\"file.csv\") from the last question to access the Pets Archives!", exclaim = True))
             Q1C_2()
-        clear_output(wait = True)
+        
         
     def Q1C_3(): # use variable to display dataset
         ans2 = input(task("Now, type ", check = True) + code("pets ") + task(" to access the data\n"))
