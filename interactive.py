@@ -235,7 +235,7 @@ def challengeplotall(): # demonstrate messy plot
         ans = str(input(task("Try adding ", check = True) + code(".plot()") + task(" to the end of the following command\n") + code("pets")))
         if ans == ".plot()": 
             pets.plot()
-            print(rover(" The lines in this graph seem really hard to read! Notice how the lines for Age (years), Legs, and Time to Adoption (years) are plotted close together while the values plotted for Weight (lbs) are greater. Let's build our skills through these notebooks to make something we can actually understand!"))
+            print(rover(" The lines in this graph seem hard to read. Notice how the green line for Weight (lbs) stretches the y-axis while the other lines in the graph overlap. Let's build our skills through these notebooks to make some data visualizations that are easier to understand!"))
         else: 
             print(tryagain("Make sure you type the code exactly like in the instructions!"))
             QPlot()
@@ -442,9 +442,9 @@ def challenge4d(): # use basic statistics methods
         elif ans == ".mean()": 
             correct_answer()
             return display(pets['Weight (lbs)'].mean())
-        elif ans == ".describe()": 
+        elif ans == ".median()": 
             correct_answer()
-            return display(pets['Weight (lbs)'].describe())
+            return display(pets['Weight (lbs)'].median())
         else: 
             print(tryagain("That doesn't seem to be a valid method!"))
             Q4D_1()  
@@ -513,6 +513,7 @@ def challenge5b(): # make a bar graph
             plt.bar(pets['Species'], pets['Legs'])
             plt.xlabel("Species")
             plt.ylabel("Number of Legs")
+            plt.title("Species by Number of Legs")
             plt.show()
             # # custom plotting function
             # def pltbr():
