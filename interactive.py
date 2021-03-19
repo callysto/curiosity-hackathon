@@ -168,7 +168,6 @@ def challenge2a(): #heads and tails challenge
         else: 
             print(tryagain("Not quite, try "), code(".head()"))
             Q2A_1()
-        clear_output(wait = True)
         return display(pets.head())
     def Q2A_2(): # view tails
         ans2 = str(input(rover(" If I only wanted to see the bottom of a dataset, I would write: \n") + code("pets")))
@@ -316,7 +315,6 @@ def challenge3e(): # advanced basic operators and logical operators
         else:
             print(tryagain("Very close! Why don't you try "), code("[pets[\'column_name\'] == \'search_term\'] "), tryagain("where the column is 'Species' and filter is 'dog'? Remember that capitalization matters!", exclaim = False))
             Q3E_1()
-        clear_output(wait = True)
  
     def Q3E_2(): # get all pets over 100lbs
         ans2 = str(input(task(" Now try to write an operator that can find all animals over 100 pounds!\n", check = True) + code("pets.loc")))
@@ -413,7 +411,6 @@ def challenge4c(): # slice dataframe
         else: 
             print(tryagain("Try again! Remember we are using "), code(".loc[1:2]"))
             Q4C_1() 
-        clear_output(wait = True)
             
     def Q4C_2(): # slicepets_subset to rows 5 - 12
         ans2 = str(input(task("Now let's try getting rows 5-12 from the data we subsetted in the last question!\n", check = True) + code("pets_subset")))
