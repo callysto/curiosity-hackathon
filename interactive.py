@@ -3,7 +3,7 @@
 """
 Created on Mon Jul 13 07:44:25 2020
 
-@author: lisacao, Laura G.F., Tina Leard
+@author: lisacao, Laura G.F., TinaL5
 """
 
 
@@ -506,6 +506,38 @@ def challenge5b(): # make a bar graph
         ans = str(input(task("Try making a bar graph of 'Species' as the x column, and 'Legs' as the y column. Let's see what we find!\n", check = True) + code("plt")))
         if ans == ".bar(pets['Species'], pets['Legs'])" or ans == "bar(pets[\"Species\"], pets[\"Legs\"])":
             correct_answer()
+        else: 
+            print(tryagain("Hmm, not quite. How about trying "), code("plt.bar(pets['Species'], pets['Legs'])"))
+            Q5B_1() 
+            
+    def Q5B_1a(): # label x-axis
+        ans2 = str(input(task("Let's add a label for the x-axis with ", check = True) + code("plt.xlabel('Species')") + normal(": ")))
+        if ans2 == "plt.xlabel('Species')" or ans2 == "plt.xlabel(\"Species\")":
+            correct_answer()
+        else: 
+            print(tryagain("How about trying "), code("plt.xlabel('Species')"))
+            Q5B_1a()
+            
+    def Q5B_1b(): # label y-axis
+        ans3 = str(input(task("Let's add a label for the y-axis with ", check = True) + code("plt.ylabel('Number of Legs')") + normal(": ")))
+        if ans3 == "plt.ylabel('Number of Legs')" or ans3 == "plt.ylabel(\"Number of Legs\")":
+            correct_answer()
+        else: 
+            print(tryagain("Why don't you try "), code("plt.ylabel('Number of Legs')"))
+            Q5B_1b()   
+            
+    def Q5B_1c(): # add title
+        ans4 = str(input(task("Let's add a title to the graph with ", check = True) + code("plt.title('Species by Number of Legs')") + normal(": ")))
+        if ans4 == "plt.title('Species by Number of Legs')" or ans4 == "plt.title(\"Species by Number of Legs\")": 
+            correct_answer()
+        else: 
+            print(tryagain("How about trying "), code("plt.title('Species by Number of Legs')"))
+            Q5B_1c() 
+            
+    def Q5B_1d(): # show graph
+        ans5 = str(input(task("Now, let's show the graph with ", check = True) + code("plt.show()") + normal(": ")))
+        if ans5 == "plt.show()":
+            correct_answer()
             print(rover(" Notice that the graph visualizes into bars to see how many there are in a category. This bar graph tells us how many legs each category of species has: cat, dog, lizard, and rabbit all have 4 legs, and tarantula has 8 legs. "))
             plt.bar(pets['Species'], pets['Legs'])
             plt.xlabel("Species")
@@ -534,26 +566,56 @@ def challenge5b(): # make a bar graph
             #     else:
             #         print(task("Continue to the next question", check = True))
             # #execute
-            # pltbr()         
+            # pltbr()            
         else: 
-            print(tryagain("Hmm, not quite. How about trying "), code("plt.bar(pets['Species'], pets['Legs'])"))
-            Q5B_1()
+            print(tryagain("Why don't you try "), code("plt.show()"))
+            Q5B_1d() 
+                       
     #execute
     Q5B_1()
+    Q5B_1a()
+    Q5B_1b()
+    Q5B_1c()
+    Q5B_1d()
       
 ################################ CHALLENGE 5     
 
 # Challenge 5 C       
 def challenge5c(): # make a histogram 
     print(rover(" Let's try making a histogram now! "))
-    def Q5C():
-        ans = str(input(task("Let's try making a histogram now! Can you fill in this command to create a histogram of the 'Species' column? \n", check = True) + code("plt")))
-        if ans == ".hist(pets['Species'])" or ans == ".hist(pets[\"Species\"])":
+    def Q5C_1():
+        ans1 = str(input(task("Let's try making a histogram now! Can you fill in this command to create a histogram of the 'Species' column? \n", check = True) + code("plt")))
+        if ans1 == ".hist(pets['Species'])" or ans1 == ".hist(pets[\"Species\"])":
+            correct_answer()
+        else: 
+            print(tryagain("How about trying "), code("plt.hist(pets['Species'])"))
+            Q5C_1()
+            
+    def Q5C_1a(): # add label for x-axis
+        ans2 = str(input(task("Let's add a label for the x-axis with ", check = True) + code("plt.xlabel('Species')") + normal(": ")))
+        if ans2 == "plt.xlabel('Species')" or ans2 == "plt.xlabel(\"Species\")":
+            correct_answer()
+        else: 
+            print(tryagain("Why don't you try "), code("plt.xlabel('Species')"))
+            Q5C_1a()
+            
+    def Q5C_1b(): # add label for y-axis
+        ans3 = str(input(task("Let's add a title to the graph with ", check = True) + code("plt.title('Pet Species')") + normal(": ")))
+        if ans3 == "plt.title('Pet Species')" or ans3 == "plt.title(\"Pet Species\")": 
+            correct_answer()
+        else: 
+            print(tryagain("Hmm, not quite. How about trying "), code("plt.title('Pet Species')"))
+            Q5C_1b() 
+            
+    def Q5C_1c(): # show graph
+        ans4 = str(input(task("Now, let's show the graph with ", check = True) + code("plt.show()") + normal(": ")))
+        if ans4 == "plt.show()":
             correct_answer()
             print(rover(" Notice that the histogram visualizes in bars and counts how many cats, dogs, lizards, and tarantulas appear in the dataset. There are many more cat and dog entries compared to lizard, rabbit, and tarantula entries."))
             plt.hist(pets['Species'])
-            plt.xlabel("Species")
-            plt.ylabel("Count")
+            plt.xlabel('Species')
+            plt.ylabel('Count')
+            plt.title('Pet Species')
             plt.show()
             # # make a custom histogram
             # def plthst():
@@ -580,25 +642,94 @@ def challenge5c(): # make a histogram
             # #execute
             # plthst()    
         else: 
-            print(tryagain("Hmm, not quite. How about trying "), code("plt.hist(pets['Species'])"))
-            Q5C()
+            print(tryagain("How about trying "), code("plt.show()"))
+            Q5C_1c() 
+            
     #execute
-    Q5C()
+    Q5C_1()
+    Q5C_1a()
+    Q5C_1b()
+    Q5C_1c()
+    
 
 # Challenge 5 D
 def challenge5d(): # make a scatterplot   
     print(rover(" Let's try making a scatterplot now! These are my favourite!"))
-    def Q5D():
+    def Q5D_1():
         ans = str(input(task("Can you fill in this command to create a scatterplot using 'Age (years)' as the x column and y as the 'Weight (lbs)' column? \n", check = True) + code("plt")))
         if ans == ".scatter(pets['Age (years)'], pets['Weight (lbs)'])" or ans == ".scatter(pets[\"Age (years)\"], pets[\"Weight (lbs)\"])":
             correct_answer()
+        else: 
+            print(tryagain("Why don't you try "), code("plt.scatter(pets['Age (years)'], pets['Weight (lbs)'])"))
+            Q5D_1()
+            
+    def Q5D_1a(): # add label for x-axis
+        ans2 = str(input(task("Let's add a label for the x-axis with ", check = True) + code("plt.xlabel('Age (years)')") + normal(": ")))
+        if ans2 == "plt.xlabel('Age (years)')" or ans2 == "plt.xlabel(\"Age (years)\")":
+            correct_answer()
+        else: 
+            print(tryagain("Hmm, not quite. How about trying "), code("plt.xlabel('Age (years)')"))
+            Q5D_1a()
+            
+    def Q5D_1b(): #add label for y-axis
+        ans3 = str(input(task("Let's add a label for the y-axis with ", check = True) + code("plt.ylabel('Weight (lbs)')") + normal(": ")))
+        if ans3 == "plt.ylabel('Weight (lbs)')" or ans3 == "plt.ylabel(\"Weight (lbs)\")":
+            correct_answer()
+        else: 
+            print(tryagain("How about trying "), code("plt.ylabel('Weight (lbs)')"))
+            Q5D_1b()   
+            
+    def Q5D_1c(): # add title
+        ans4 = str(input(task("Let's add a title to the scatterplot with ", check = True) + code("plt.title('Relationship between Age and Weight')") + normal(": ")))
+        if ans4 == "plt.title('Relationship between Age and Weight')" or ans4 == "plt.title(\"Relationship between Age and Weight\")": 
+            correct_answer()
+        else: 
+            print(tryagain("Why don't you try "), code("plt.title('Relationship between Age and Weight')"))
+            Q5D_1c() 
+            
+    def Q5D_1d(): # show plot
+        ans5 = str(input(task("Now, let's show the scatterplot with ", check = True) + code("plt.show()") + normal(": ")))
+        if ans5 == "plt.show()":
+            correct_answer()
             print(rover(" Notice that some data points are close while others are far apart. This means that the relationship between Age and Weight looks like a positive relationship toward older animals weighing more. Hmm, but a 16-year-old pet weighs the least and is an outlier."))
             plt.scatter(pets['Age (years)'], pets['Weight (lbs)'])
-            plt.xlabel("Age (years)")
-            plt.ylabel("Weight (lbs)")
-            plt.show()
+            plt.xlabel('Age (years)')
+            plt.ylabel('Weight (lbs)')
+            plt.title('Relationship between Age and Weight')
+            plt.show()          
         else: 
-            print(tryagain("Hmm, not quite. How about trying "), code("plt.scatter(pets['Age (years)'], pets['Weight (lbs)'])"))
-            Q5D()
+            print(tryagain("Hmm, not quite. How about trying "), code("plt.show()"))
+            Q5D_1d() 
+
     #execute
-    Q5D()
+    Q5D_1()
+    Q5D_1a()
+    Q5D_1b()
+    Q5D_1c()
+    Q5D_1d()
+
+# Challenge 5 E
+def challenge5e(): # find outlier of scatterplot
+    print(rover(" Now, let's find the outlier in the scatterplot by filtering data. We'll need to use code from the pandas library again."))
+    
+    def Q5E_1(): # use pandas to filter 16 years old
+        ans1 = str(input(task("Try this syntax to filter for 16 years old in the 'Age (years)' column of the dataset. ", check = True) + code("dataset.loc[dataset['column_name'] == 16]") ))
+        if ans1 == "pets.loc[pets['Age (years)'] == 16]" or ans1 == "pets.loc[pets[\"Age (years)\" == 16]": 
+            correct_answer()
+            return display(pets.loc[pets['Age (years)'] == 16])
+        else: 
+            print(tryagain("Try this code. "), code("pets.loc[pets['Age (years)'] == 16]"))
+            Q5E_1()
+            
+    def Q5E_1a(): # find outlier's name
+        ans2 = str(input(task("The 16-year-old pet that weighs 9.2 lbs and is an outlier is: ")))
+        if ans2 == "Felix":
+            correct_answer()
+        else: 
+            print(rover(" Almost there. Hint, the name starts with F"))
+            Q5E_1a()
+
+    #execute
+    Q5E_1()
+    Q5E_1a()
+ 
