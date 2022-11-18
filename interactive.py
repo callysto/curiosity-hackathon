@@ -20,36 +20,44 @@ pets = pandas.read_csv("pets_from_bootstrap_world.csv")
 ################################ TEXT ENCODING
 
 def rover(text): # blocked out grey with emoji
-    rvr = "\033[1;37;40m 🐶 Rover: \033[1;0m" + text + "\033[1;0m"
+    #rvr = "\033[1;37;40m 🐶 Rover: \033[1;0m" + text + "\033[1;0m"
+    rvr = "🐶 Rover: " + text
     return rvr
 
 def task(text, check = False): # light blue with emoji option
     if check == True:
-        blu = "\033[1;36m" + "✅ " + text + "\033[1;0m"
+        #blu = "\033[1;36m" + "✅ " + text + "\033[1;0m"
+        blu = "✅ " + text
         return blu
     else:
-        blu = "\033[1;36m" + text + "\033[1;0m"
+        #blu = "\033[1;36m" + text + "\033[1;0m"
+        blu = text
         return blu
 
 def bedazzle(text): # purple with randomized  emoji 
      sparkle = ["✨ ", "🌟 ", "🎉 ", "🥳 ", "🤩 ", "🎊 ", "🚀 ", "😎 "]
-     prl = "\033[1;35m" + random.choice(sparkle) + text + "\033[1;0m"
+     #prl = "\033[1;35m" + random.choice(sparkle) + text + "\033[1;0m"
+     prl = random.choice(sparkle) + text
      return prl
    
 def normal(text): # plain black 
-     nrl = "\033[1;0m" + text + "\033[1;0m"
+     #nrl = "\033[1;0m" + text + "\033[1;0m"
+     nrl = text
      return nrl
  
 def code(text): # bright green 
-     grn = "\033[1;32m" + text + "\033[1;0m"
+     #grn = "\033[1;32m" + text + "\033[1;0m"
+     grn = text
      return grn
  
 def tryagain(text, exclaim = True): # red with default emoji 
     if exclaim == False:
-        red = "\033[1;31m" + text + "\033[1;0m"
+        #red = "\033[1;31m" + text + "\033[1;0m"
+        red = text
         return red
     else:
-        red = "\033[1;31m" + "❗️ " + text + "\033[1;0m"
+        #red = "\033[1;31m" + "❗️ " + text + "\033[1;0m"
+        red = "❗️ " + text
         return red
 
 # positive feedback for correct answers
